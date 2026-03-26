@@ -1,8 +1,12 @@
 <?php
+require_once 'includes/session.php';
+requireLogin();
+
 $pageTitle = 'Dashboard';
 require_once 'config/database.php';
 require_once 'includes/header.php';
-requireLogin();
+
+
 
 $userId = $_SESSION['user_id'];
 $today = date('Y-m-d');

@@ -11,7 +11,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-<?php if (isLoggedIn()): ?>
+    <?php if (isLoggedIn()): ?>
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">

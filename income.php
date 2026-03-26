@@ -2,6 +2,7 @@
 $pageTitle = 'Income';
 require_once 'config/database.php';
 require_once 'includes/header.php';
+require_once 'includes/session.php';
 requireLogin();
 
 $userId = $_SESSION['user_id'];

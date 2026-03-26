@@ -3,6 +3,7 @@ $pageTitle = 'Login';
 require_once 'config/database.php';
 require_once 'includes/session.php';
 
+
 if (isLoggedIn()) { header("Location: index.php"); exit; }
 
 $error = '';
