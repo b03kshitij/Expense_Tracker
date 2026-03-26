@@ -4,8 +4,14 @@ RUN docker-php-ext-install mysqli
 
 RUN a2enmod rewrite
 
-COPY . /var/www/html/
+# VERY IMPORTANT: set correct working dir
+WORKDIR /var/www/html
 
+COPY . .
+
+# Fix permissions
 RUN chown -R www-data:www-data /var/www/html
 
-RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf
+# Ensure index.php is default
+RUN echo "DirectoryIndex index.php" > /etc/apache2/conf-available/custom.conf \
+    && a2enconf custom
