@@ -1,17 +1,16 @@
 FROM php:8.2-apache
 
+# Install MySQL extension
 RUN docker-php-ext-install mysqli
 
+# Copy your project files
+COPY . /var/www/html/
+
+# Enable .htaccess support
 RUN a2enmod rewrite
 
-# VERY IMPORTANT: set correct working dir
-WORKDIR /var/www/html
+# Fix Apache warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-COPY . .
-
-# Fix permissions
-RUN chown -R www-data:www-data /var/www/html
-
-# Ensure index.php is default
-RUN echo "DirectoryIndex index.php" > /etc/apache2/conf-available/custom.conf \
-    && a2enconf custom
+# Expose default Apache port
+EXPOSE 80
