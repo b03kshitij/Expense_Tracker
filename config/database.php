@@ -1,26 +1,10 @@
 <?php
 
-$DATABASE_URL = getenv("DATABASE_URL");
-
-$db = parse_url($DATABASE_URL);
-
-if ($db === false) {
-    die("Invalid DATABASE URL");
-}
-
-$host = $db['host'];
-$user = $db['user'];
-$pass = $db['pass'];
-$dbname = ltrim($db['path'], '/');
-$port = isset($db['port']) ? $db['port'] : 3306;
-
-// REMOVE debug after testing
-// echo "Host: $host <br>";
-// echo "User: $user <br>";
-// echo "Pass: $pass <br>";
-// echo "DB: $dbname <br>";
-// echo "Port: $port <br>";
-// exit;
+$host = getenv("DB_HOST");
+$user = getenv("DB_USER");
+$pass = getenv("DB_PASS");
+$dbname = getenv("DB_NAME");
+$port = getenv("DB_PORT") ?: 3306;
 
 $conn = new mysqli($host, $user, $pass, $dbname, $port);
 
