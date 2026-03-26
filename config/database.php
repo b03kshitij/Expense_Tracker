@@ -1,6 +1,6 @@
 <?php
 
-$DATABASE_URL = "mysql://root:wpcngszFbJyUgeTwSuidMOcguufeSnsL@crossover.proxy.rlwy.net:58793/railway";
+$DATABASE_URL = "mysql://appuser:AppUser@123@crossover.proxy.rlwy.net:58793/railway";
 
 $db = parse_url($DATABASE_URL);
 
@@ -19,5 +19,7 @@ $conn = new mysqli($host, $user, $pass, $dbname, $port);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 $conn->set_charset("utf8mb4");
+
 ?>
