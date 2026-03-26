@@ -2,8 +2,8 @@
 
 $database_url = getenv("DATABASE_URL");
 
-echo getenv("DATABASE_URL");
-exit;
+//echo getenv("DATABASE_URL");
+//exit;
 
 if (!$database_url) {
     die("DATABASE_URL not set");
