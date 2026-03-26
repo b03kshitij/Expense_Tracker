@@ -1,6 +1,6 @@
 <?php
 
-$DATABASE_URL = "mysql://appuser:AppUser%40123@crossover.proxy.rlwy.net:3306/railway";
+$DATABASE_URL = getenv("DATABASE_URL");
 
 $db = parse_url($DATABASE_URL);
 
@@ -14,13 +14,13 @@ $pass = $db['pass'];
 $dbname = ltrim($db['path'], '/');
 $port = isset($db['port']) ? $db['port'] : 3306;
 
-// Debug (temporary)
-echo "Host: " . $host . "<br>";
-echo "User: " . $user . "<br>";
-echo "Pass: " . $pass . "<br>";
-echo "DB: " . $dbname . "<br>";
-echo "Port: " . $port . "<br>";
-exit;
+// REMOVE debug after testing
+// echo "Host: $host <br>";
+// echo "User: $user <br>";
+// echo "Pass: $pass <br>";
+// echo "DB: $dbname <br>";
+// echo "Port: $port <br>";
+// exit;
 
 $conn = new mysqli($host, $user, $pass, $dbname, $port);
 
